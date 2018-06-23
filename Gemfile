@@ -35,7 +35,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-gem 'bluma-rails'
+gem 'bulma-rails'
 gem 'simple_form'
 gem 'devise'
 gem 'gravatar_image_tag'
