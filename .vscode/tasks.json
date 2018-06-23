@@ -1,0 +1,137 @@
+// {
+//   "version": "2.0.0",
+//   "tasks": [
+//     {
+//       "label": "bundle install",
+//       "type": "shell",
+//       "command": "bundle install --path vendor/bundle"
+//     },
+//     {
+//       "label": "rails db:migrate",
+//       "type": "shell",
+//       "command": "bundle exec rails db:migrate",
+//       "dependsOn": [
+//         "bundle install"
+//       ],
+//     },
+//     {
+//       "label": "rails server start",
+//       "type": "shell",
+//       "command": "bundle exec rails server --daemon",
+//       "dependsOn": [
+//         "rails server stop",
+//         "rails db:migrate"
+//       ],
+//     },
+//     {
+//       "label": "rails server stop",
+//       "type": "shell",
+//       "command": "test -e ./tmp/pids/server.pid && kill -9 `cat ./tmp/pids/server.pid` || true"
+//     },
+//     {
+//       "label": "rails start",
+//       "type": "shell",
+//       "command": "open http://localhost:3000",
+//       "windows": {
+//         "command": "explorer.exe http://localhost:3000"
+//       },
+//       "presentation": {
+//         "reveal": "always",
+//         "panel": "shared"
+//       },
+//       "group": {
+//         "kind": "build",
+//         "isDefault": true
+//       },
+//       "dependsOn": [
+//         "rails server start"
+//       ],
+//       "problemMatcher": []
+//     }
+//   ]
+// }
+
+
+
+
+
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Ruby Format",
+      "type": "shell",
+      "command": "rbeautify ${relativeFile}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "ERB Format",
+      "type": "shell",
+      "command": "/home/tbkoo53/.rbenv/shims/htmlbeautifier ${relativeFile}",
+      "problemMatcher": [],
+      //"program": "${workspaceRoot}/bin/rails",
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "rubocop",
+      "type": "shell",
+      "command": "rubocop --auto-correct ${relativeFile}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "rspec",
+      "type": "shell",
+      "command": "bundle exec rspec",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "rspec file",
+      "type": "shell",
+      "command": "bundle exec rspec ${relativeFile}",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "rails c",
+      "type": "shell",
+      "command": "bundle exec rails console",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "rails s",
+      "type": "shell",
+      "command": "bundle exec rails server",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always"
+      }
+    },
+    // {
+    //   "label": "configure",
+    //   "type": "shell",
+    //   "command": "gem install rbeautify ruby-debug-ide:0.6.0 debase:0.2.2.beta10 rcodetools rubocop fastri htmlbeautifier --no-ri --no-rdoc",
+    //   "problemMatcher": [],
+    //   "presentation": {
+    //     "reveal": "always"
+    //   }
+    // }
+  ]
+}
