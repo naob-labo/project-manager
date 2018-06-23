@@ -2,7 +2,9 @@
   "name": "project-manager",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "3.5"
+    "@rails/webpacker": "3.5",
+    "vue-resource": "^1.5.1",
+    "vue-turbolinks": "^2.0.3"
   },
   "devDependencies": {
     "webpack-dev-server": "2.11.2"
