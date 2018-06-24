@@ -4,15 +4,14 @@ import VueResource from 'vue-resource'
 Vue.use(VueResource)
 
 document.addEventListener('turbolinks:load', () => {
-    Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').get
-        Attribute('content')
+    Vue.http.headers.common['X-CSRF-Token'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content')
 
     var element = document.getElementById('team-form') 
 
     if(element != null) {
         var id = element.dataset.id
         var team = JSON.parse(element.dataset.team)
-        var user_attributes = JSON.parse(element.data.usersAttributes)
+        var users_attributes = JSON.parse(element.dataset.usersAttributes)
         users_attributes.forEach(function(user) { user._destroy = null })
         team.users_attributes = users_attributes
 
