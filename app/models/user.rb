@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable
 
-  #has_many :projects
-  #has_many :teams
+  has_many :projects
+  has_many :teams
 
   # new function to set the password without knowing the current
   # password used in our confirmation controller.
